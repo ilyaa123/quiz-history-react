@@ -1,0 +1,107 @@
+.QuestContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 73.8px);
+    transition: 0.26s ease-in-out;
+}
+.Quest{
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0 60px;
+    z-index: 1;
+}
+.QuestTitle{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    color: #5757ff;
+}
+.QuestForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+.QuestLabel{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+.QuestLabel:last-child{
+    margin-bottom: 0;
+}
+.QuestRadio{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+.QuestBox{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+.QuestAnsw{
+    font-size: 20px;
+    font-weight: 500;   
+}
+.QuestButton{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 60px;
+    background-color: #5757ff;
+    border-radius: 10px;
+    align-self: center;
+}
+.QuestOverlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.26s ease-in-out;
+}
+.QuestOverlayActive{
+    opacity: 1;
+    visibility: visible;
+}
+.QuestAnswer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.295);
+}
+.QuestDesc{
+    font-size: 24px;
+}
+.QuestDescTrue{
+    color: green;
+}
+.QuestDescFalse{
+    color: red;
+}

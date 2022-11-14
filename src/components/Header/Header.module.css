@@ -1,0 +1,17 @@
+.Header{
+    padding: 10px 0;
+    background-color: #5757ff;
+}
+.HeaderContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HeaderTitle{
+    font-size: 20px;
+    letter-spacing: 6px;
+    font-weight: 300;
+    color: #FFFFFF;
+}

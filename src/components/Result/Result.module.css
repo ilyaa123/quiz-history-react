@@ -1,0 +1,32 @@
+.ResultContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 73.8px);
+}
+.Result{
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+.ResultTitle{
+    font-size: 24px;
+    font-weight: 600;
+    color: #5757ff;
+    margin-bottom: 40px;
+}
+.Button{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 60px;
+    background-color: #5757ff;
+    border-radius: 10px;
+}

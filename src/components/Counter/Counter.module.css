@@ -1,0 +1,8 @@
+.Counter{
+    position: absolute;
+    top: 30px;
+    right: 60px;
+}
+.CounterTitle{
+    font-size: 28px;
+}
