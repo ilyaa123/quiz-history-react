@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
+import { setAnswers } from '../../hooks/setAnswers';
+import { setErrors } from '../../hooks/setErrors';
 import { updateStep } from '../../redux/questSlice';
 import { Counter } from '../Counter/Countet';
 
 import style from './Quest.module.css';
 
-export const Quest = ({ quest, step }) => {
+export const Quest = ({ quest }) => {
     const answerRef = useRef();
     const modalRef = useRef();
 
@@ -13,43 +15,31 @@ export const Quest = ({ quest, step }) => {
 
     const dispatch = useDispatch();
 
+
     const handleOnSubmit = (event) => {
         event.preventDefault();
+
+
         const answers = []; 
         
         event.target.querySelectorAll('input:checked').forEach(element => {
             answers.push(element.value)
         });
 
-        let rightAnswers = 0;
+        if (answers.length !== 0){
+            let rightAnswers = 0;
 
-        answers.forEach(ans => {
-            quest.right.forEach((rig) => {
-                if (quest.answers[rig] === ans){
-                    rightAnswers++
-                }
+            answers.forEach(ans => {
+                quest.right.forEach((rig) => {
+                    if (quest.answers[rig] === ans){
+                        rightAnswers++
+                    }
+                })
             })
-        })
-
-        if (rightAnswers === quest.right.length){
-            answerRef.current.textContent = 'Правильно!';
-            answerRef.current.classList.add(style.QuestDescTrue);
-            modalRef.current.classList.add(style.QuestOverlayActive);
-            setAnswer(true);
-            event.target.querySelectorAll('input').forEach(ans => {
-                ans.disabled = 'true'
-            })
+            setAnswers(rightAnswers, quest, answerRef, modalRef, setAnswer, style, event)
         } else {
-            answerRef.current.textContent = 'Неправильно!';
-            answerRef.current.classList.add(style.QuestDescFalse);
-            modalRef.current.classList.add(style.QuestOverlayActive);
+            setErrors(answerRef, modalRef, style)
         }
-        setTimeout(() => {
-            modalRef.current.classList.remove(style.QuestOverlayActive);
-            answerRef.current.classList.remove(style.QuestDescFalse);
-            answerRef.current.classList.remove(style.QuestDescTrue);
-            answerRef.current.textContent = '';
-        }, 2000)
     }
 
     const handleOnClick = (event) => {
@@ -61,9 +51,20 @@ export const Quest = ({ quest, step }) => {
         })
     }
 
+    const closeOnClick = (event) => {
+        if (event.target === modalRef.current){
+            modalRef.current.classList.remove(style.QuestOverlayActive);
+            answerRef.current.classList.remove(style.QuestDescFalse);
+            answerRef.current.classList.remove(style.QuestDescTrue);
+            setTimeout(() => {
+                answerRef.current.textContent = '';
+            }, 370)
+        }
+    }
+
     return (
         <div className={style.QuestContainer} >
-            <div className={style.Quest}>
+            <div className={style.Quest} >
             <Counter />
                 <h3 className={style.QuestTitle}>{quest.question}</h3>
                 <form className={style.QuestForm} onSubmit={handleOnSubmit}>
@@ -85,7 +86,7 @@ export const Quest = ({ quest, step }) => {
                     }
                 </form>
             </div>
-            <div className={style.QuestOverlay} ref={modalRef}>
+            <div className={style.QuestOverlay} ref={modalRef} onClick={closeOnClick}>
                 <div className={style.QuestAnswer}>
                     <p className={style.QuestDesc} ref={answerRef}></p>
                 </div>

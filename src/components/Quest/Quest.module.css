@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 73.8px);
+    height: calc(100vh - 43px);
     transition: 0.26s ease-in-out;
 }
 .Quest{
@@ -19,7 +19,9 @@
     border-radius: 50px;
     padding: 0 60px;
     z-index: 1;
+    background-color: #FFFFFF;
 }
+
 .QuestTitle{
     font-size: 32px;
     font-weight: 500;
@@ -39,9 +41,7 @@
     justify-content: flex-start;
     margin-bottom: 40px;
 }
-.QuestLabel:last-child{
-    margin-bottom: 0;
-}
+
 .QuestRadio{
     width: 20px;
     height: 20px;
@@ -70,16 +70,16 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.295);
-    z-index: 1;
-    visibility: hidden;
+    z-index: -1;
     opacity: 0;
-    transition: 0.26s ease-in-out;
+    transition: opacity 0.26s ease-in-out;
+    cursor: pointer;
 }
 .QuestOverlayActive{
     opacity: 1;
-    visibility: visible;
+    z-index: 1;
 }
 .QuestAnswer{
     position: absolute;
@@ -92,6 +92,7 @@
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
+    cursor: default;
     border-radius: 50px;
     z-index: 2;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.295);
@@ -104,4 +105,20 @@
 }
 .QuestDescFalse{
     color: red;
+}
+@media (max-width: 460px) {
+    .Quest{
+        padding: 0 25px;
+    }
+}
+@media (max-height: 720px) {
+    .QuestTitle{
+        margin-bottom: 30px;
+    }
+    .QuestLabel{
+        margin-bottom: 20px;
+    }
+    .QuestLabel:last-child{
+        margin-bottom: 40px;
+    }
 }

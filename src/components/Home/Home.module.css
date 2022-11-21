@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+    background-color: #FFFFFF;
 }
 .HomeTitle{
     font-size: 32px;
@@ -29,4 +30,7 @@
     padding: 10px 60px;
     background-color: #5757ff;
     border-radius: 10px;
+}
+.Active{
+    opacity: 1;
 }
