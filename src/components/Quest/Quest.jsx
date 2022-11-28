@@ -1,45 +1,56 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
-import { setAnswers } from '../../hooks/setAnswers';
-import { setErrors } from '../../hooks/setErrors';
+
 import { updateStep } from '../../redux/questSlice';
 import { Counter } from '../Counter/Countet';
+import { Modal } from '../Modal/Modal';
 
 import style from './Quest.module.css';
 
 export const Quest = ({ quest }) => {
-    const answerRef = useRef();
-    const modalRef = useRef();
 
     const [answerTrue, setAnswer] = useState(false);
+    const [modalActive, setModalActive] = useState(false);
+    const [text, setText] = useState('');
+    const [color, setColor] = useState(false);
 
     const dispatch = useDispatch();
 
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-
-
-        const answers = []; 
-        
-        event.target.querySelectorAll('input:checked').forEach(element => {
+        const answers = [];
+        const checked = event.target.querySelectorAll('input:checked');
+        checked.forEach(element => {
             answers.push(element.value)
         });
-
         if (answers.length !== 0){
             let rightAnswers = 0;
-
             answers.forEach(ans => {
                 quest.right.forEach((rig) => {
                     if (quest.answers[rig] === ans){
-                        rightAnswers++
+                        ++rightAnswers
                     }
                 })
-            })
-            setAnswers(rightAnswers, quest, answerRef, modalRef, setAnswer, style, event)
+            });
+            if (rightAnswers === quest.right.length){
+                setText('Правильный ответ!');
+                document.querySelectorAll('input').forEach((elem) => {
+                    elem.disabled = true;
+                });
+                setColor(true);
+                setAnswer(true);
+            } else {
+                setColor(false);
+                setText('Неправильный ответ!');
+                checked.forEach(check => {
+                    if (check.type === 'radio') check.disabled = true;
+                })
+            }
         } else {
-            setErrors(answerRef, modalRef, style)
+            setText('Выберите вариант ответа');
         }
+        setModalActive(true);
     }
 
     const handleOnClick = (event) => {
@@ -49,17 +60,6 @@ export const Quest = ({ quest }) => {
         document.querySelectorAll('input').forEach(ans => {
             ans.disabled = ''
         })
-    }
-
-    const closeOnClick = (event) => {
-        if (event.target === modalRef.current){
-            modalRef.current.classList.remove(style.QuestOverlayActive);
-            answerRef.current.classList.remove(style.QuestDescFalse);
-            answerRef.current.classList.remove(style.QuestDescTrue);
-            setTimeout(() => {
-                answerRef.current.textContent = '';
-            }, 370)
-        }
     }
 
     return (
@@ -86,11 +86,7 @@ export const Quest = ({ quest }) => {
                     }
                 </form>
             </div>
-            <div className={style.QuestOverlay} ref={modalRef} onClick={closeOnClick}>
-                <div className={style.QuestAnswer}>
-                    <p className={style.QuestDesc} ref={answerRef}></p>
-                </div>
-            </div>
+            {<Modal modalActive={modalActive} setModalActive={setModalActive} text={text} color={color} /> }
         </div>
     )
 }

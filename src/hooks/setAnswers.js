@@ -21,6 +21,7 @@ export const setAnswers = (rightAnswers, quest, answerRef, modalRef, setAnswer, 
         event.target.reset();
     }
    
+    if (modalRef.current.classList.contains(style.QuestOverlayActive)){
         setTimeout(() => {
             modalRef.current.classList.remove(style.QuestOverlayActive);
             answerRef.current.classList.remove(style.QuestDescFalse);
@@ -28,5 +29,7 @@ export const setAnswers = (rightAnswers, quest, answerRef, modalRef, setAnswer, 
             setTimeout(() => {
                 answerRef.current.textContent = '';
             }, 370)
-        }, 2000);
+            
+        }, 1000);
+    }
 }
