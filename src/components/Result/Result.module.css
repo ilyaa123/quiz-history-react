@@ -17,18 +17,52 @@
     border-radius: 50px;
     background-color: #FFFFFF;
 }
-.ResultTitle{
+.ResultUser{
     font-size: 24px;
     font-weight: 600;
     color: #5757ff;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: center;
 }
-.Button{
+.ResultValue{
+    font-size: 26px;
+    font-weight: 400;
+    color: #5757ff;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.ResultBtn{
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 600;
     padding: 10px 60px;
     background-color: #5757ff;
     border-radius: 10px;
+    margin-bottom: 20px;
+}
+.Button{
+    padding: 6px;
+    font-size: 18px;
+    color: #5757ff;
+    border-bottom: 1px solid #5757ff;
+}
+.ResultRound{
+    background: 
+    linear-gradient(#FFFFFF 0 0) padding-box,
+    linear-gradient(to right, #e7ff39, #5757ff) border-box;
+    color: #313149;
+    width: 100px;
+    height: 100px;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 35px 0;
+    font-weight: 600;
+    color: #0000a6;
+    font-size: 28px;
 }

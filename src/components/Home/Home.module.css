@@ -20,8 +20,22 @@
 .HomeTitle{
     font-size: 32px;
     font-weight: 500;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     color: #5757ff;
+}
+.HomeInput{
+    max-width: 240px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 60px;
+    border: 2px solid #5757ff;
+    border-radius: 5px;
+    color: #5757ff;
+    font-size: 18px;
+    text-align: center;
+}
+.HomeInput:focus{
+    outline: none;
 }
 .HomeButton{
     color: #FFFFFF;
