@@ -6,3 +6,8 @@
 .CounterTitle{
     font-size: 28px;
 }
+@media (max-width: 565px){
+    .Counter{
+        top: 20px;
+    }
+}

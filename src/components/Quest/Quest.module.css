@@ -11,13 +11,13 @@
     max-width: 600px;
     width: 100%;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295);
-    height: 600px;
+    min-height: 620px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
     border-radius: 50px;
-    padding: 0 60px;
+    padding: 65px 50px;
     z-index: 1;
     background-color: #FFFFFF;
 }
@@ -25,36 +25,39 @@
 .QuestTitle{
     font-size: 32px;
     font-weight: 500;
-    margin-bottom: 60px;
     color: #5757ff;
 }
 .QuestForm{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
+    flex-grow: 1;
 }
 .QuestLabel{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
 }
 
 .QuestRadio{
+    display: block;
     width: 20px;
     height: 20px;
     margin-right: 20px;
+
 }
 .QuestBox{
+    display: block;
     width: 20px;
     height: 20px;
     margin-right: 20px;
 }
 .QuestAnsw{
+    display: inline;
     font-size: 20px;
-    font-weight: 500;   
+    font-weight: 500;
 }
 .QuestButton{
     color: #FFFFFF;
@@ -64,20 +67,15 @@
     background-color: #5757ff;
     border-radius: 10px;
     align-self: center;
+    margin-top: 20px;
 }
-@media (max-width: 460px) {
+@media (max-width: 565px) {
     .Quest{
-        padding: 0 25px;
+        padding: 55px 20px;
     }
 }
-@media (max-height: 720px) {
+@media (max-width: 385px) {
     .QuestTitle{
-        margin-bottom: 30px;
-    }
-    .QuestLabel{
-        margin-bottom: 20px;
-    }
-    .QuestLabel:last-child{
-        margin-bottom: 40px;
+        margin-bottom: 25px;
     }
 }

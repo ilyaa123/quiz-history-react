@@ -13,6 +13,10 @@ body{
 *, *::after, *::before{
     box-sizing: inherit;
 }
+input{
+    outline: none;
+    border: none;
+}
 button{
     border: none;
     background-color: inherit;
