@@ -1,0 +1,14 @@
+.swiperProgress{
+    padding: 0 35px;
+}
+.swiperProgress > .swiper-button-next, .swiper-button-prev{
+    color: #5757ff;
+}
+.swiperProgress > .swiper-button-next::after, .swiper-button-prev::after{
+    font-size: 16px;
+}
+@media (max-width: 610px) {
+    .swiperProgress{
+        padding: 0 30px;
+    }
+}

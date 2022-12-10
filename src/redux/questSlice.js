@@ -7,15 +7,18 @@ const questSlice = createSlice({
         user: localStorage.getItem('user') || '',
         quest: db,
         step: -1,
-        answersTrue: 0
+        answers: []
     },
     reducers: {
         updateStep: (state) => {
-            state.step += 1
+            state.step = state.answers.length
         },
         removeStap: (state) => {
             state.step = -1;
-            state.answersTrue = 0;
+            state.answers = [];
+        },
+        setStap: (state, action) => {
+            state.step = action.payload
         },
         shaffleQuest: (state) => {
             let currentIndex = state.quest.length;
@@ -34,8 +37,8 @@ const questSlice = createSlice({
             state.quest = newArray
             
         },
-        setAnswersTrue: (state) => {
-            state.answersTrue += 1
+        setAnswers: (state, action) => {
+            state.answers[state.step] = action.payload
         },
         setUser: (state, action) => {
             state.user = action.payload;
@@ -49,5 +52,6 @@ export default questSlice.reducer;
 export const { updateStep } = questSlice.actions;
 export const { removeStap } = questSlice.actions;
 export const { shaffleQuest } = questSlice.actions;
-export const { setAnswersTrue } = questSlice.actions;
+export const { setAnswers } = questSlice.actions;
 export const { setUser } = questSlice.actions;
+export const { setStap } = questSlice.actions;

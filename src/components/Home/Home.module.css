@@ -1,9 +1,9 @@
 .HomeContainer{
+    padding-top: 60px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 73.8px);
 }
 .Home{
     max-width: 600px;
