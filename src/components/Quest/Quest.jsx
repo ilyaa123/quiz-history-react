@@ -1,8 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { setAnswersTrue, updateStep } from '../../redux/questSlice';
-
-import { Counter } from '../Counter/Countet';
-
+import { setAnswers, updateStep } from '../../redux/questSlice';
+import { Progres } from '../Progress/Progres';
 
 import style from './Quest.module.css';
 
@@ -17,26 +15,17 @@ export const Quest = ({ quest }) => {
             answers.push(element.value)
         });
         if (answers.length !== 0){
-            let rightAnswers = 0;
-            answers.forEach(ans => {
-                quest.right.forEach((rig) => {
-                    if (quest.answers[rig] === ans){
-                        ++rightAnswers
-                    }
-                })
-            });     
-            if (rightAnswers === quest.right.length && rightAnswers === checked.length){
-                dispatch(setAnswersTrue())
-            }
+            dispatch(setAnswers(answers))
             dispatch(updateStep())
             event.target.reset()
+            
         }
     }
 
     return (
         <div className={style.QuestContainer} >
             <div className={style.Quest} >
-                <Counter />
+                <Progres />
                 <h3 className={style.QuestTitle}>{quest.question}</h3>
                 <form className={style.QuestForm} onSubmit={handleOnSubmit}>
 
