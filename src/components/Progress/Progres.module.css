@@ -19,6 +19,7 @@
 .ProgresItemActive{
     background-color: #5757ff;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .ProgresChecked{
     background-color: #e7ff39;

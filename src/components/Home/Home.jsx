@@ -39,7 +39,7 @@ export const Home = () => {
             </div>
         </div>
         : step < quest.length ?
-            <Quest  quest={quest[step]} step={step}/>
+            <Quest  quest={quest[step]} step={step} />
         :
             <Result />
         

@@ -66,3 +66,13 @@
     color: #0000a6;
     font-size: 28px;
 }
+@media (max-width: 565px) {
+    .ResultContainer{
+        padding-top: 0;
+    }
+    .Result{
+        height: calc(100vh - 47px);
+        border-radius: 0;
+        padding: 85px 20px 55px;
+    }
+}
