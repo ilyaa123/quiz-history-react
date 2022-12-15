@@ -45,6 +45,14 @@
     background-color: #5757ff;
     border-radius: 10px;
 }
-.Active{
-    opacity: 1;
+
+@media (max-width: 565px) {
+    .HomeContainer{
+        padding-top: 0;
+    }
+    .Home{
+        border-radius: 0;
+        padding: 85px 20px 55px;
+        height: calc(100vh - 47px);
+    }
 }

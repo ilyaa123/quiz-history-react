@@ -15,10 +15,9 @@ export const Quest = ({ quest }) => {
             answers.push(element.value)
         });
         if (answers.length !== 0){
-            dispatch(setAnswers(answers))
-            dispatch(updateStep())
-            event.target.reset()
-            
+            dispatch(setAnswers(answers));
+            dispatch(updateStep());
+            event.target.reset();
         }
     }
 
